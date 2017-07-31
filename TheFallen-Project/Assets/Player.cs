@@ -80,6 +80,12 @@ public class Player : MonoBehaviour
 		if(Input.GetButtonUp("Jump"))
 		{
 			pistolOut=!pistolOut;
+			if(targ1)
+				targ1.Unhighlight();
+			targ1=null;
+			if(targ2)
+				targ2.Unhighlight();
+			targ2=null;
 		}
 		buildChangeCool-=Time.deltaTime;
 		if(Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
@@ -164,6 +170,12 @@ public class Player : MonoBehaviour
 		if(Input.GetButtonUp("Reload") && !pistolOut)
 		{
 			buildMode=!buildMode;
+			if(targ1)
+				targ1.Unhighlight();
+			targ1=null;
+			if(targ2)
+				targ2.Unhighlight();
+			targ2=null;
 		}
 		Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 		r.origin = new Vector3(r.origin.x, r.origin.y, 0);
