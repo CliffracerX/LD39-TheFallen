@@ -72,7 +72,7 @@ public class Generator : PowerObject
 		{
 			if(fuel>0)
 			{
-				euT=euTMax;
+				euT=euTMax*Time.deltaTime;
 				fuel-=Time.deltaTime;
 				float euM = fuel/fuelMax;
 				thing = (int)(euM*sprites.Length);
@@ -83,6 +83,7 @@ public class Generator : PowerObject
 			}
 			else
 			{
+				euT=0;
 				fuel=0;
 				blinkTick-=Time.deltaTime;
 				if(blinkTick<0)

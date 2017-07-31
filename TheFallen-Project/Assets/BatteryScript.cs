@@ -12,6 +12,7 @@ public class BatteryScript : PowerObject
 	public SpriteRenderer sr;
 	public Light flashLight;
 	public float uses;
+	public bool autoMaxes = true;
 
 	public override void Highlight()
 	{
@@ -25,7 +26,7 @@ public class BatteryScript : PowerObject
 
 	public override bool GetPower(float amount)
 	{
-		if(eu<=maxEU-amount)
+		if(eu<=maxEU)
 		{
 			eu+=amount;
 			return true;
@@ -60,7 +61,7 @@ public class BatteryScript : PowerObject
 	void Update()
 	{
 		//DO THINGS TO SYNC THINGS;
-		if(eu>maxEU)
+		if(eu>maxEU && autoMaxes)
 		{
 			eu=maxEU;
 		}

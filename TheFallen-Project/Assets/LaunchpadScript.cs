@@ -23,7 +23,7 @@ public class LaunchpadScript : MonoBehaviour
 		waveCooldown-=Time.deltaTime;
 		if(waveCooldown<=0)
 		{
-			waveCooldown=45f;
+			waveCooldown=60f;
 			curWave+=1;
 			for(int i = 0; i<curWave; i++)
 			{

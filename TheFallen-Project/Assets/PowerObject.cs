@@ -18,6 +18,15 @@ public class PowerObject : MonoBehaviour
 		}
 	}
 
+	public void ClearWires()
+	{
+		foreach(Wire w in wires)
+		{
+			Destroy(w.gameObject);
+		}
+		wires.Clear();
+	}
+
 	public virtual void Highlight()
 	{
 		

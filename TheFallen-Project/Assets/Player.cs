@@ -247,31 +247,47 @@ public class Player : MonoBehaviour
 				}
 				else if(targ1 && targ2)
 				{
-					PowerObject tempTarg = rh.collider.GetComponent<PowerObject>();
-					if(tempTarg==targ1 || tempTarg==targ2)
+					if(targ1==targ2)
 					{
+						targ1.ClearWires();
 						targ1.Unhighlight();
-						targ2.Unhighlight();
-						GameObject go = (GameObject)Instantiate(wireObj, Vector3.zero, Quaternion.identity);
-						Wire w = go.GetComponent<Wire>();
-						w.targ1=targ1;
-						w.targ2=targ2;
-						targ1.wires.Add(w);
-						targ2.wires.Add(w);
 						targ1=null;
 						targ2=null;
 					}
 					else
 					{
-						if(targ1)
+						PowerObject tempTarg = rh.collider.GetComponent<PowerObject>();
+						if(tempTarg==targ1 || tempTarg==targ2)
 						{
 							targ1.Unhighlight();
-						}
-						if(targ2)
-						{
 							targ2.Unhighlight();
+							GameObject go = (GameObject)Instantiate(wireObj, Vector3.zero, Quaternion.identity);
+							Wire w = go.GetComponent<Wire>();
+							w.targ1=targ1;
+							w.targ2=targ2;
+							targ1.wires.Add(w);
+							targ2.wires.Add(w);
+							targ1=null;
+							targ2=null;
+						}
+						else
+						{
+							if(targ1)
+							{
+								targ1.Unhighlight();
+								targ1=null;
+							}
+							if(targ2)
+							{
+								targ2.Unhighlight();
+								targ1=null;
+							}
 						}
 					}
+				}
+				else
+				{
+
 				}
 			}
 			else
@@ -279,10 +295,12 @@ public class Player : MonoBehaviour
 				if(targ1)
 				{
 					targ1.Unhighlight();
+					targ1=null;
 				}
 				if(targ2)
 				{
 					targ2.Unhighlight();
+					targ1=null;
 				}
 			}
 		}
