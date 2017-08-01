@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
 	public enum Scr {MainScr=0, HelpScr=1}
 	public Scr thisScr;
-	public GameObject logo;
+	public GameObject logo,webLogo;
 	public GUIStyle style;
 	[TextArea]
 	public string helpLabel;
@@ -13,9 +13,14 @@ public class MainMenu : MonoBehaviour
 	void OnGUI()
 	{
 		logo.SetActive(false);
+		webLogo.SetActive(false);
 		if(thisScr==Scr.MainScr)
 		{
 			logo.SetActive(true);
+			if(Application.platform==RuntimePlatform.WebGLPlayer)
+			{
+				webLogo.SetActive(true);
+			}
 			if(GUI.Button(new Rect(Screen.width/2-196, Screen.height/2-80, 196*2, 64), "Play Game", style))
 			{
 				Application.LoadLevel(1);
