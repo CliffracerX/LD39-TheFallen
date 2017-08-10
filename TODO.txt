@@ -16,7 +16,7 @@
      * The Dude is an uncomplicated character.  He's got all the critical buildings, with no fluff added.
      * His pistol is powerful, high-capacity, and has a variable semi-auto RoF; it's as fast as you need it to be.
      * While he lacks some of the tactical depth that other characters can rock, he's simple and powerful.
- * THE Psycho
+ * THE PSYCHO
    * HP: 50
    * ORE: 50
    * AMMO: 5 r/M shotgun with 40 spare shells, variable damage with constant semi-auto RoF and slower, manual reloads
@@ -30,7 +30,7 @@
      * Electroshield: Slows/damages everything walking inside, including the player.  Available to Offensive characters.  10 ore.
      * The Lifekeeper: Keeps you above 0 HP when nearish for a metric fuckton of energy.  Unique to The Psycho.  50 ore.
    * PLAYSTYLE: Shooter-game incarnate
-	 * The ??? is a murder-machine; loads of health, ammo, and damage per shot, with an invulnerability machine.
+	 * The Psycho is a murder-machine; loads of health, ammo, and damage per shot, with an invulnerability machine.
 	 * His shotgun is an offensive weapon of IMPRESSIVE damage potential, but it's hampered by slow reloads and lower RoF.
 	 * While he lacks some of the base-buildy goodness that Defensive characters have got, he's loads of fun for just rampaging.
  * THE ???
