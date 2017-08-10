@@ -12,9 +12,18 @@ public class LaunchpadScript : MonoBehaviour
 	public GameObject baddy;
 	//public GameObject[] baddies;
 	//public float[] chance;
-	public int curWave;
-	public float waveCooldown;
+	public static int curWave;
+	public float waveCooldown,waveCD;
 	public float mapScale;
+	public float[] cooldownsFromDiff;
+	public float[] drainRatesFromDiff;
+
+	void Start()
+	{
+		this.waveCD = cooldownsFromDiff[MainMenu.curDif];
+		this.lifeDrainRate = drainRatesFromDiff[MainMenu.curDif];
+		this.waveCooldown=waveCD;
+	}
 
 	void Update()
 	{
@@ -23,8 +32,9 @@ public class LaunchpadScript : MonoBehaviour
 		waveCooldown-=Time.deltaTime;
 		if(waveCooldown<=0)
 		{
-			waveCooldown=60f;
+			waveCooldown=waveCD;
 			curWave+=1;
+			//curWave+=curWave/10;
 			for(int i = 0; i<curWave; i++)
 			{
 				Vector3 tempting = new Vector3(UnityEngine.Random.Range(-mapScale, mapScale), UnityEngine.Random.Range(-mapScale, mapScale));

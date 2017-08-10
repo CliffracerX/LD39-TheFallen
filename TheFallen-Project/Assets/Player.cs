@@ -13,6 +13,39 @@ public class BuildingEntry
 	public GameObject obj;
 }
 
+[System.Serializable]
+public class MusicThing
+{
+	public AudioSource[] tracks;
+	public float tick,speed;
+	public int lastType,curType;
+
+	public void StopAll()
+	{
+		foreach(AudioSource s in tracks)
+		{
+			s.volume=0;
+		}
+	}
+
+	public void Update()
+	{
+		tick+=Time.deltaTime;
+		tracks[lastType].volume = Mathf.Lerp(1, 0, tick/speed);
+		tracks[curType].volume = Mathf.Lerp(0, 1, tick/speed);
+	}
+
+	public void Play(int track)
+	{
+		if(curType!=track)
+		{
+			lastType=curType;
+			curType=track;
+			tick=0;
+		}
+	}
+}
+
 public class Player : MonoBehaviour
 {
 	public float moveSpeed = 2.5f;
@@ -20,8 +53,11 @@ public class Player : MonoBehaviour
 	public GameObject bodyBase,armBase,armPistol;
 	public bool pistolAcquired,pistolOut;
 	public GameObject bulletObj;
+	public int numShots = 1;
+	public float spread = 0;
 	public float bulletSpeed,fireRate,fireRateM;
 	public int clip,maxClip,mags,maxMags;
+	public bool reloadsAll = true;
 	public Texture2D clipIcon,emptyClipIcon,magIcon,emptyMagIcon;
 	public int health,maxHealth,ore,maxOre,stam,maxStam;
 	public Texture2D hpIcon,emptyHpIcon,oreIcon,emptyOreIcon,stamIcon,emptyStamIcon;
@@ -40,13 +76,15 @@ public class Player : MonoBehaviour
 	public GUIStyle buildStyle;
 	public static Player instance;
 	public GameObject zamb;
-
 	public Transform camera;
 	public float shake;
+	public MusicThing[] types;
+	public AudioSource hurtNoise;
 
 	void Damage(int amount)
 	{
 		health-=amount;
+		hurtNoise.Play();
 		if(health<=0)
 		{
 			Destroy(this.gameObject);
@@ -58,6 +96,10 @@ public class Player : MonoBehaviour
 	{
 		tempBuild.transform.parent=null;
 		Player.instance=this;
+		foreach(MusicThing mt in types)
+		{
+			mt.StopAll();
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -131,7 +173,14 @@ public class Player : MonoBehaviour
 		flashlight.enabled=flashlightOn;
 		float smod = 1;
 		if(stam>0 && Input.GetButton("Sprint"))
+		{
 			smod=2;
+			anm.SetBool("Sprinting", true);
+		}
+		else
+		{
+			anm.SetBool("Sprinting", false);
+		}
 		transform.position+=new Vector3(Input.GetAxis("Horizontal")*moveSpeed*Time.deltaTime*smod, Input.GetAxis("Vertical")*moveSpeed*Time.deltaTime*smod);
 		if(pistolAcquired && pistolOut)
 		{
@@ -143,7 +192,7 @@ public class Player : MonoBehaviour
 			armBase.SetActive(true);
 			armPistol.SetActive(false);
 		}
-		fireRateM-=Time.deltaTime;
+		fireRate-=Time.deltaTime;
 		if(pistolAcquired && pistolOut)
 		{
 			if(Input.GetButtonUp("Fire1") && clip>0 && fireRate<=0)
@@ -151,18 +200,26 @@ public class Player : MonoBehaviour
 				//BANG
 				clip-=1;
 				fireSound.Play();
-				GameObject bullet = (GameObject)Instantiate(bulletObj, armPistol.transform.position, armPistol.transform.rotation);
-				//bullet.transform.Rotate(0, 180, 0);
-				bullet.GetComponent<Rigidbody2D>().AddForce(-bullet.transform.right*bulletSpeed);
+				for(int i = 0; i<numShots; i++)
+				{
+					//armPistol.transform.Rotate(0, 0, Random.Range(-spread, spread));
+					GameObject bullet = (GameObject)Instantiate(bulletObj, armPistol.transform.position, armPistol.transform.rotation);
+					//bullet.transform.Rotate(0, 0, Random.Range(-spread, spread));
+					//bullet.transform.Rotate(0, 180, 0);
+					bullet.GetComponent<Rigidbody2D>().AddForce((-bullet.transform.right+new Vector3(0, Random.Range(-spread, spread), 0))*bulletSpeed);
+					camera.localPosition += new Vector3(Random.Range(-0.125f, 0.125f), Random.Range(-0.125f, 0.125f));
+				}
 				fireRate=fireRateM;
-				camera.localPosition += new Vector3(Random.Range(-0.125f, 0.125f), Random.Range(-0.125f, 0.125f));
 				shake=0;
 			}
 			if(Input.GetButtonUp("Reload") && mags>0 && clip<maxClip)
 			{
 				//CLICK
 				mags-=1;
-				clip=maxClip;
+				if(reloadsAll)
+					clip=maxClip;
+				else
+					clip+=1;
 			}
 		}
 		shake+=Time.deltaTime;
@@ -337,7 +394,60 @@ public class Player : MonoBehaviour
 			//armPistol.transform.rotation = qT;
 			armPistol.transform.localScale = new Vector3(1, -1, 1);
 		}
+		int musState = 0;
+		int numZombs = 0,numBuilds = 0;
+		Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, 15);
+		foreach(Collider2D c in cols)
+		{
+			if(c.GetComponent<ZambieScript>())
+			{
+				numZombs+=1;
+			}
+			else if(!c.GetComponent<ZambieScript>() && c.tag=="Damagable")
+			{
+				numBuilds+=1;
+			}
+		}
+		foreach(MusicThing mt in types)
+		{
+			mt.StopAll();
+			mt.Update();
+		}
+		if(health>maxHealth/25 && mags>maxMags/5)
+		{
+			types[0].Play(curTrack);
+		}
+		else
+		{
+			types[0].Play(0);
+		}
+		if(numZombs>10)
+		{
+			types[1].Play(curTrack);
+		}
+		else if(numZombs<5 && types[1].tick>=1)
+		{
+			types[1].Play(0);
+		}
+		if(numBuilds>25)
+		{
+			types[2].Play(curTrack);
+		}
+		else
+		{
+			types[2].Play(0);
+		}
+		if(pistolOut)
+		{
+			types[3].Play(curTrack);
+		}
+		else
+		{
+			types[3].Play(0);
+		}
 	}
+
+	public int curTrack = 0;
 
 	Rect ScalePos(int x, int y, int w, int h, int amount)
 	{
@@ -347,15 +457,29 @@ public class Player : MonoBehaviour
 	void OnGUI()
 	{
 		GUI.color = new Color(0.75f, 0.75f, 0.75f);
+		int ymT = 0;
 		for(int i = 0; i<maxHealth; i++)
 		{
+			int xm = i;
+			int ym = ymT;
+			ym += hpIcon.height;
+			while(xm>=100f/hpIcon.width)
+			{
+				xm-=100/hpIcon.width;
+				ym += hpIcon.height;
+			}
+			if(i==maxHealth-1)
+			{
+				//ym-=hpIcon.height;
+				ymT+=(ym-ymT);
+			}
 			if(health>i)
 			{
-				GUI.DrawTexture(ScalePos(5+(4*i), 5, 4, 5, 4), hpIcon);
+				GUI.DrawTexture(ScalePos(5+(hpIcon.width*xm), ym, hpIcon.width, hpIcon.height, 4), hpIcon);
 			}
 			else
 			{
-				GUI.DrawTexture(ScalePos(5+(4*i), 5, 4, 5, 4), emptyHpIcon);
+				GUI.DrawTexture(ScalePos(5+(hpIcon.width*xm), ym, hpIcon.width, hpIcon.height, 4), emptyHpIcon);
 			}
 		}
 		for(int i = 0; i<maxStam; i++)
@@ -373,59 +497,74 @@ public class Player : MonoBehaviour
 		{
 			for(int i = 0; i<maxMags; i++)
 			{
+				int xm = i;
+				int ym = ymT;
+				ym += hpIcon.height;
+				while(xm>=100f/magIcon.width)
+				{
+					xm-=100/magIcon.width;
+					ym += magIcon.height;
+				}
+				if(i==maxMags-1)
+				{
+					//ym-=magIcon.height;
+					ymT+=(ym-ymT);
+				}
 				if(mags>i)
 				{
-					GUI.DrawTexture(ScalePos(5+(20*i), 10, 20, 4, 4), magIcon);
+					GUI.DrawTexture(ScalePos(5+(magIcon.width*xm), ym, magIcon.width, magIcon.height, 4), magIcon);
 				}
 				else
 				{
-					GUI.DrawTexture(ScalePos(5+(20*i), 10, 20, 4, 4), emptyMagIcon);
+					GUI.DrawTexture(ScalePos(5+(magIcon.width*xm), ym, magIcon.width, magIcon.height, 4), emptyMagIcon);
 				}
 			}
 			for(int i = 0; i<maxClip; i++)
 			{
 				int xm = i;
-				int ym = 0;
-				if(xm>=10)
+				int ym = ymT;
+				ym += magIcon.height;
+				while(xm>=100f/clipIcon.width)
 				{
-					xm-=10;
-					ym = 4;
+					xm-=100/clipIcon.width;
+					ym += clipIcon.height;
+				}
+				if(i==maxClip-1)
+				{
+					//ym-=clipIcon.height;
+					ymT+=(ym-ymT);
 				}
 				if(clip>i)
 				{
-					GUI.DrawTexture(ScalePos(5+(10*xm), 14+ym, 10, 4, 4), clipIcon);
+					GUI.DrawTexture(ScalePos(5+(clipIcon.width*xm), ym, clipIcon.width, clipIcon.height, 4), clipIcon);
 				}
 				else
 				{
-					GUI.DrawTexture(ScalePos(5+(10*xm), 14+ym, 10, 4, 4), emptyClipIcon);
+					GUI.DrawTexture(ScalePos(5+(clipIcon.width*xm), ym, clipIcon.width, clipIcon.height, 4), emptyClipIcon);
 				}
 			}
 			for(int i = 0; i<maxOre; i++)
 			{
 				int xm = i;
-				int ym = 0;
-				if(xm>=25)
+				int ym = ymT;
+				ym += clipIcon.height;
+				while(xm>=100f/oreIcon.width)
 				{
-					xm-=25;
-					ym += 4;
+					xm-=100/oreIcon.width;
+					ym += oreIcon.height;
 				}
-				if(xm>=25)
+				if(i==maxOre-1)
 				{
-					xm-=25;
-					ym += 4;
-				}
-				if(xm>=25)
-				{
-					xm-=25;
-					ym += 4;
+					//ym-=oreIcon.height;
+					ymT+=(ym-ymT);
 				}
 				if(ore>i)
 				{
-					GUI.DrawTexture(ScalePos(5+(4*xm), 22+ym, 4, 5, 4), oreIcon);
+					GUI.DrawTexture(ScalePos(5+(oreIcon.width*xm), ym, oreIcon.width, oreIcon.height, 4), oreIcon);
 				}
 				else
 				{
-					GUI.DrawTexture(ScalePos(5+(4*xm), 22+ym, 4, 5, 4), emptyOreIcon);
+					GUI.DrawTexture(ScalePos(5+(oreIcon.width*xm), ym, oreIcon.width, oreIcon.height, 4), emptyOreIcon);
 				}
 			}
 		}
@@ -434,29 +573,25 @@ public class Player : MonoBehaviour
 			for(int i = 0; i<maxOre; i++)
 			{
 				int xm = i;
-				int ym = 0;
-				if(xm>=25)
+				int ym = ymT;
+				ym += hpIcon.height;
+				while(xm>=100f/oreIcon.width)
 				{
-					xm-=25;
-					ym += 4;
+					xm-=100/oreIcon.width;
+					ym += oreIcon.height;
 				}
-				if(xm>=25)
+				if(i==maxOre-1)
 				{
-					xm-=25;
-					ym += 4;
-				}
-				if(xm>=25)
-				{
-					xm-=25;
-					ym += 4;
+					//ym-=oreIcon.height;
+					ymT+=(ym-ymT);
 				}
 				if(ore>i)
 				{
-					GUI.DrawTexture(ScalePos(5+(4*xm), 10+ym, 4, 5, 4), oreIcon);
+					GUI.DrawTexture(ScalePos(5+(oreIcon.width*xm), ym, oreIcon.width, oreIcon.height, 4), oreIcon);
 				}
 				else
 				{
-					GUI.DrawTexture(ScalePos(5+(4*xm), 10+ym, 4, 5, 4), emptyOreIcon);
+					GUI.DrawTexture(ScalePos(5+(oreIcon.width*xm), ym, oreIcon.width, oreIcon.height, 4), emptyOreIcon);
 				}
 			}
 		}

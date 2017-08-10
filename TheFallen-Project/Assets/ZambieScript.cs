@@ -11,14 +11,25 @@ public class ZambieScript : MonoBehaviour
 	public Rigidbody2D rb;
 	public float speed;
 	public Animator anm;
+	public float[] resModFromDif;
+	public float[] healthModFromDif;
+	public AudioSource hurtNoise;
+
+	void Start()
+	{
+		this.minDrop = (int)(this.minDrop*resModFromDif[MainMenu.curDif]);
+		this.maxDrop = (int)(this.maxDrop*resModFromDif[MainMenu.curDif]);
+		this.maxHealth = (int)(this.maxHealth*healthModFromDif[MainMenu.curDif]);
+	}
 
 	void Damage(int amount)
 	{
 		health-=amount;
+		hurtNoise.Play();
 		if(health<=0)
 		{
 			Destroy(this.gameObject);
-			for(int i = 0; i<Random.Range(minDrop, maxDrop); i++)
+			for(int i = 0; i<minDrop+Random.Range(0, maxDrop); i++)
 			{
 				GameObject go = (GameObject)Instantiate(dropObj, transform.position+new Vector3(Random.Range(-doRange, doRange), Random.Range(-doRange, doRange)), Quaternion.identity);
 				if(go.GetComponent<Rigidbody2D>())
@@ -35,25 +46,36 @@ public class ZambieScript : MonoBehaviour
 		{
 			cooldown=Random.Range(coolMin, coolMax);
 			other.gameObject.SendMessage("Damage", damageDealt);
+			anm.SetTrigger("Attack");
 		}
 	}
 
 	void Update()
 	{
-		Vector3 normal = (transform.position - Player.instance.transform.position);
-		normal.Normalize();
-		rb.AddForce(normal*speed);
-		cooldown-=Time.deltaTime;
-		//if(cooldown<=0)
+		if(Player.instance)
 		{
-
-			/*if(Vector3.Distance(transform.position, Player.instance.transform.position)<range)
+			Vector3 normal = (transform.position - Player.instance.transform.position);
+			normal.Normalize();
+			rb.AddForce(normal*speed);
+			cooldown-=Time.deltaTime;
+			if(transform.position.x - Player.instance.transform.position.x < 0)
 			{
-				GameObject proj = (GameObject)Instantiate(projectile, transform.position, transform.rotation);
-				Rigidbody2D rbt = proj.GetComponent<Rigidbody2D>();
-				rbt.AddForce(normal*projSpeed);
-				anm.SetTrigger("Attack");
-			}*/
+				transform.localScale = new Vector3(-transform.localScale.z, transform.localScale.z, transform.localScale.z);
+			}
+			else
+			{
+				transform.localScale = new Vector3(transform.localScale.z, transform.localScale.z, transform.localScale.z);
+			}
+			if(cooldown<=0 && projectile!=null)
+			{
+				if(Vector3.Distance(transform.position, Player.instance.transform.position)<range)
+				{
+					GameObject proj = (GameObject)Instantiate(projectile, transform.position, transform.rotation);
+					Rigidbody2D rbt = proj.GetComponent<Rigidbody2D>();
+					rbt.AddForce(normal*projSpeed);
+					anm.SetTrigger("Attack");
+				}
+			}
 		}
 	}
 }

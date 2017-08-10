@@ -13,6 +13,12 @@ public class BatteryScript : PowerObject
 	public Light flashLight;
 	public float uses;
 	public bool autoMaxes = true;
+	public float[] maxEUFromDif;
+
+	void Start()
+	{
+		this.maxEU = maxEUFromDif[MainMenu.curDif];
+	}
 
 	public override void Highlight()
 	{
@@ -50,7 +56,11 @@ public class BatteryScript : PowerObject
 			eu-=amount;
 			return true;
 		}
-		else return false;
+		else
+		{
+			eu=0;
+			return false;
+		}
 	}
 
 	public override float GetPowerUse()

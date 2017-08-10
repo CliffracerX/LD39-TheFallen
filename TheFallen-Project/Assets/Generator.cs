@@ -12,6 +12,14 @@ public class Generator : PowerObject
 	public float blinkTick,blinkTickSpeed;
 	public SpriteRenderer sr;
 	public Light flashLight;
+	public float[] euTMaxesFromDiff;
+	public float[] fuelMaxesFromDiff;
+
+	void Start()
+	{
+		this.euTMax = euTMaxesFromDiff[MainMenu.curDif];
+		this.fuelMax = fuelMaxesFromDiff[MainMenu.curDif];
+	}
 
 	public override void Highlight()
 	{

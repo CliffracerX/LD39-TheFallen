@@ -43,7 +43,7 @@ public class AmmoScript : PowerObject
 				healTick=0;
 				if(Vector3.Distance(transform.position, Player.instance.transform.position)<=healRange)
 				{
-					Player.instance.mags+=healAmount;
+					Player.instance.mags+=(int)(healAmount*(Player.instance.maxMags/5f));
 					if(Player.instance.mags>Player.instance.maxMags)
 						Player.instance.mags=Player.instance.maxMags;
 				}
