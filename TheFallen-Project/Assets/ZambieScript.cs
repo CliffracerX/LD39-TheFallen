@@ -19,7 +19,7 @@ public class ZambieScript : MonoBehaviour
 	{
 		this.minDrop = (int)(this.minDrop*resModFromDif[MainMenu.curDif]);
 		this.maxDrop = (int)(this.maxDrop*resModFromDif[MainMenu.curDif]);
-		this.maxHealth = (int)(this.maxHealth*healthModFromDif[MainMenu.curDif]);
+		this.health = this.maxHealth = (int)(this.maxHealth*healthModFromDif[MainMenu.curDif]);
 	}
 
 	void Damage(int amount)

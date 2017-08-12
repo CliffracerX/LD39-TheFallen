@@ -11,9 +11,9 @@
      * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
      * Shield: Blocks enemy passage and projectiles when toggled, for some energy.  Available to Defensive characters.  5 ore.
      * Turret: A stationary gun that auto PEWPEWs nearby enemies for a lot of energy.  Available to Defensive characters.  25 ore.
-     * Belusian Engine: A special object that pushes zombies away for a lot of energy.  Unique to The Dude.  50 ore.
+     * Belusian Engine: A special object that pushes zombies away for a lot of energy.  Unique to The Dude.  25 ore.
    * PLAYSTYLE: Noob-friendly in every way
-     * The Dude is an uncomplicated character.  He's got all the critical buildings, with no fluff added.
+     * The Dude is an uncomplicated character.  His buildings are simple and effective for turtling, and his weapon's good.
      * His pistol is powerful, high-capacity, and has a variable semi-auto RoF; it's as fast as you need it to be.
      * While he lacks some of the tactical depth that other characters can rock, he's simple and powerful.
  * THE PSYCHO
@@ -27,10 +27,10 @@
      * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
      * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
      * Caltrops: Slowly damages anything walking over them, including the player.  Available to Offensive characters.  5 ore.
-     * Electroshield: Slows/damages everything walking inside, including the player.  Available to Offensive characters.  10 ore.
-     * The Lifekeeper: Keeps you above 0 HP when nearish for a metric fuckton of energy.  Unique to The Psycho.  50 ore.
+     * Landmine: Explodes (permanently) when stuff walks on top, including the player.  Available to Offensive characters.  5 ore.
+     * Experimental Drone: A drone that shoots enemies and draws them away of its own accord.  Unique to The Psycho.  50 ore.
    * PLAYSTYLE: Shooter-game incarnate
-	 * The Psycho is a murder-machine; loads of health, ammo, and damage per shot, with an invulnerability machine.
+	 * The Psycho is a murder-machine; loads of health, ammo, and damage per shot, with offensive drone allies that can help him.
 	 * His shotgun is an offensive weapon of IMPRESSIVE damage potential, but it's hampered by slow reloads and lower RoF.
 	 * While he lacks some of the base-buildy goodness that Defensive characters have got, he's loads of fun for just rampaging.
  * THE ???
