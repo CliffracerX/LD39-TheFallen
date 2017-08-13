@@ -20,6 +20,7 @@ public class LaunchpadScript : MonoBehaviour
 
 	void Start()
 	{
+		curWave = 0;
 		this.waveCD = cooldownsFromDiff[MainMenu.curDif];
 		this.lifeDrainRate = drainRatesFromDiff[MainMenu.curDif];
 		this.waveCooldown=waveCD;

@@ -47,17 +47,15 @@
      * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
      * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
 	 * Shield: Blocks enemy passage and projectiles when toggled, for some energy.  Available to Defensive characters.  5 ore.
-	 * Turret: A stationary gun that auto PEWPEWs nearby enemies for a lot of energy.  Available to Defensive characters.  50 ore.
 	 * Caltrops: Slowly damages anything walking over them, including the player.  Available to Offensive characters.  5 ore.
-	 * Landmine: Explodes (permanently) when stuff walks on top, including the player.  Available to Offensive characters.  5 ore.
    * PLAYSTYLE: Basebuilding to the max
-	 * The Warrior is a base-building monster, having access to more offensive DPS-focused buildings and defensive constructions alike.
+	 * The Warrior is a mobile base-building monster; shields and caltrops can make for an effective combo.
 	 * Her revolver is high-power, able to oneshot the generic zombies even in Drool difficulty, even from afar.
 	 * However, she doesn't get any special buildings of her own, and she has to reload frequently in combat.
  * THE RATTMANN
-   * HP: 25
-   * ORE: 75
-   * AMMO: TBD r/M smg with TBD magazines, doing low-accuracy spray-n-pray pew pews with constant full-auto RoF and mid-speed reloads
+   * HP: 40
+   * ORE: 100
+   * AMMO: 50 r/M smg with 8 magazines, doing low-accuracy spray-n-pray pew pews with constant full-auto RoF and mid-speed reloads
    * MELEE: Lunge forward and bite for 9 damage and burst of movement towards location
    * BUILDING CLASS: Mixed
 	 * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
@@ -66,11 +64,10 @@
      * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
      * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
 	 * Turret: A stationary gun that auto PEWPEWs nearby enemies for a lot of energy.  Available to Defensive characters.  50 ore.
-	 * Caltrops: Slowly damages anything walking over them, including the player.  Available to Offensive characters.  5 ore.
-	 * SPECIAL: ???
+	 * Landmine: Explodes (permanently) when stuff walks on top, including the player.  Available to Offensive characters.  5 ore.
    * PLAYSTYLE: Kiting chaos funtimes
-	 * The Rattmann is chaos incarnate, as playable characters go, with turrets and caltrops making deadly defenses, and SMG spray 24/7.
-	 * Their SMG is highish power; each bullet only does one damage, but when you're spraying hundreds out per minute...it adds up.
+	 * The Rattmann is a chaotic lightweight death machine, with his rapidfire SMG and deadly traps.
+	 * Their SMG is highish power; each bullet only does two damage, but when you're spraying hundreds out per minute...it adds up.
 	 * However, the downside of this is that it takes longer to kill enemies, and the inaccuracy means long-range frags are hard.
 -=MUSIC TODO=-
  * MUSIC TYPES: Music is split up into several files per track for different conditions

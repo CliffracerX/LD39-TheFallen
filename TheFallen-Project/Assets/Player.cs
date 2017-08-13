@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
 	public float bulletSpeed,fireRate,fireRateM;
 	public int clip,maxClip,mags,maxMags;
 	public bool reloadsAll = true;
+	public bool fullAuto = false;
 	public Texture2D clipIcon,emptyClipIcon,magIcon,emptyMagIcon;
 	public int health,maxHealth,ore,maxOre,stam,maxStam;
 	public Texture2D hpIcon,emptyHpIcon,oreIcon,emptyOreIcon,stamIcon,emptyStamIcon;
@@ -196,7 +197,7 @@ public class Player : MonoBehaviour
 		fireRate-=Time.deltaTime;
 		if(pistolAcquired && pistolOut)
 		{
-			if(Input.GetButtonUp("Fire1") && clip>0 && fireRate<=0)
+			if((fullAuto ? Input.GetButton("Fire1") : Input.GetButtonUp("Fire1")) && clip>0 && fireRate<=0)
 			{
 				//BANG
 				clip-=1;

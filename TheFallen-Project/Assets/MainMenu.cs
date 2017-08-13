@@ -7,6 +7,8 @@ public class EntryThing
 	public string name;
 	[TextArea]
 	public string description;
+	[TextArea]
+	public string lockDesc;
 	public Texture2D icon;
 }
 
@@ -15,16 +17,49 @@ public class MainMenu : MonoBehaviour
 	public enum Scr {MainScr=0, HelpScr=1, PlayScr=2}
 	public Scr thisScr;
 	public GameObject logo,webLogo;
-	public GUIStyle style,selStyle;
+	public GUIStyle style,selStyle,lockStyle;
 	[TextArea]
 	public string helpLabel;
 	public EntryThing[] difs,chars;
 	public static int curDif,curChar;
+	public bool[] difUnlocked,charUnlocked;
+	public static MainMenu inst;
+
+	public static void DifState(int dif, bool state)
+	{
+		inst.difUnlocked[dif]=state;
+		PlayerPrefs.SetInt("DifUn:"+dif, state ? 1 : 0);
+	}
+
+	public static void CharState(int cha, bool state)
+	{
+		inst.charUnlocked[cha]=state;
+		PlayerPrefs.SetInt("CharUn:"+cha, state ? 1 : 0);
+	}
 
 	void Start()
 	{
+		inst = this;
 		curDif = PlayerPrefs.GetInt("DifficultyPref");
 		curChar = PlayerPrefs.GetInt("CharacterPref");
+		for(int i = 0; i<difUnlocked.Length; i++)
+		{
+			difUnlocked[i] = PlayerPrefs.GetInt("DifUn:"+i)==1 ? true : false;
+		}
+		for(int i = 0; i<charUnlocked.Length; i++)
+		{
+			charUnlocked[i] = PlayerPrefs.GetInt("CharUn:"+i)==1 ? true : false;
+		}
+		if(difUnlocked[0]==false)
+		{
+			difUnlocked[0] = true;
+			PlayerPrefs.SetInt("DifUn:0", 1);
+		}
+		if(charUnlocked[0]==false)
+		{
+			charUnlocked[0] = true;
+			PlayerPrefs.SetInt("CharUn:0", 1);
+		}
 	}
 
 	void OnGUI()
@@ -83,9 +118,10 @@ public class MainMenu : MonoBehaviour
 				}
 			}
 			GUI.Label(new Rect((Screen.width/2)+(Screen.width/4), 0, 196, 32), "CHARACTERS:", selStyle);
-			GUI.Label(new Rect(25, Screen.height-368, Screen.width/3, 368), difs[curDif].description, style);
-			GUI.Label(new Rect(Screen.width-(Screen.width/3)-25, Screen.height-368, Screen.width/3, 368), chars[curChar].description, style);
-			if(GUI.Button(new Rect(Screen.width-196-25, Screen.height-64, 196, 64), "PLAY", selStyle))
+			GUI.Label(new Rect(25, Screen.height-368, Screen.width/3, 368), difUnlocked[curDif] ? difs[curDif].description : difs[curDif].lockDesc, style);
+			GUI.Label(new Rect(Screen.width-(Screen.width/3)-25, Screen.height-368, Screen.width/3, 368), charUnlocked[curChar] ? chars[curChar].description : chars[curChar].lockDesc, style);
+			bool playAct = difUnlocked[curDif] && charUnlocked[curChar];
+			if(GUI.Button(new Rect(Screen.width-196-25, Screen.height-64, 196, 64), "PLAY", playAct ? selStyle : lockStyle) && playAct)
 			{
 				Application.LoadLevel(1);
 			}
