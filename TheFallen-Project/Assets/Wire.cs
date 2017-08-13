@@ -11,7 +11,7 @@ public class Wire : MonoBehaviour
 		ln.SetPosition(0, targ1.transform.position);
 		ln.SetPosition(1, targ2.transform.position);
 		float dt = Time.deltaTime;
-		if(targ1.toggle && targ2.toggle)
+		if((targ1.toggle && targ2.toggle) || (targ1.toggle && targ2.takesWhenOff))
 		{
 			if(targ1.HasPower(targ2.GetPowerUse()*dt))
 			{

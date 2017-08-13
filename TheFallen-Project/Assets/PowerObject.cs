@@ -5,16 +5,30 @@ using System.Collections.Generic;
 public class PowerObject : MonoBehaviour
 {
 	public bool toggle = true;
+	public bool takesWhenOff = false;
 	public List<Wire> wires;
 	public float health,maxhealth;
 	public string type;
+	public GameObject tempSound;
+	public AudioClip dmgSound,destSound;
+	public float dmgRange = 10,destRange=20;
 
 	void Damage(int amount)
 	{
 		health-=amount;
+		GameObject sound = (GameObject)Instantiate(tempSound, transform.position, transform.rotation);
+		AudioSource oAS = sound.GetComponent<AudioSource>();
+		oAS.clip=dmgSound;
+		oAS.minDistance=dmgRange/20;
+		oAS.maxDistance=dmgRange;
+		oAS.Play();
 		if(health<=0)
 		{
 			this.Destroy();
+		}
+		if(health>this.maxhealth)
+		{
+			health=this.maxhealth;
 		}
 	}
 
@@ -47,6 +61,12 @@ public class PowerObject : MonoBehaviour
 			}
 		}
 		Destroy(this.gameObject);
+		GameObject sound = (GameObject)Instantiate(tempSound, transform.position, transform.rotation);
+		AudioSource oAS = sound.GetComponent<AudioSource>();
+		oAS.clip=destSound;
+		oAS.minDistance=destRange/20;
+		oAS.maxDistance=destRange;
+		oAS.Play();
 	}
 
 	public virtual bool UsePower(float amount)

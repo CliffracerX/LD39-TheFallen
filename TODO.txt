@@ -3,6 +3,7 @@
    * HP: 25
    * ORE: 100
    * AMMO: 20 r/M pistol with 5 magazines to spare, mid-damage with variable RoF and fast reloads
+   * MELEE: Punch for 6 damage
    * BUILDING CLASS: Defensive
      * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
      * Battery: Store energy from Generators to use later.  Available to all characters.  25 ore.
@@ -10,8 +11,8 @@
      * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
      * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
      * Shield: Blocks enemy passage and projectiles when toggled, for some energy.  Available to Defensive characters.  5 ore.
-     * Turret: A stationary gun that auto PEWPEWs nearby enemies for a lot of energy.  Available to Defensive characters.  25 ore.
-     * Belusian Engine: A special object that pushes zombies away for a lot of energy.  Unique to The Dude.  25 ore.
+     * Turret: A stationary gun that auto PEWPEWs nearby enemies for a lot of energy.  Available to Defensive characters.  50 ore.
+	 * SPECIAL: ???
    * PLAYSTYLE: Noob-friendly in every way
      * The Dude is an uncomplicated character.  His buildings are simple and effective for turtling, and his weapon's good.
      * His pistol is powerful, high-capacity, and has a variable semi-auto RoF; it's as fast as you need it to be.
@@ -19,7 +20,8 @@
  * THE PSYCHO
    * HP: 50
    * ORE: 50
-   * AMMO: 5 r/M shotgun with 40 spare shells, variable damage with constant semi-auto RoF and slower, manual reloads
+   * AMMO: 5 r/M shotgun with 50 spare shells, variable damage with constant semi-auto RoF and slower, manual reloads
+   * MELEE: Hit w/ butt of shotgun stock for 3 damage
    * BUILDING CLASS: Offensive
      * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
      * Battery: Store energy from Generators to use later.  Available to all characters.  25 ore.
@@ -28,15 +30,16 @@
      * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
      * Caltrops: Slowly damages anything walking over them, including the player.  Available to Offensive characters.  5 ore.
      * Landmine: Explodes (permanently) when stuff walks on top, including the player.  Available to Offensive characters.  5 ore.
-     * Experimental Drone: A drone that shoots enemies and draws them away of its own accord.  Unique to The Psycho.  50 ore.
+	 * SPECIAL: ???
    * PLAYSTYLE: Shooter-game incarnate
 	 * The Psycho is a murder-machine; loads of health, ammo, and damage per shot, with offensive drone allies that can help him.
 	 * His shotgun is an offensive weapon of IMPRESSIVE damage potential, but it's hampered by slow reloads and lower RoF.
 	 * While he lacks some of the base-buildy goodness that Defensive characters have got, he's loads of fun for just rampaging.
- * THE ???
-   * HP: 10
-   * ORE: 200
-   * AMMO: 10 r/M pistol with ten spare magazines, high bursts of DPM with full-auto RoF, and rapid reloads.
+ * THE WARRIOR
+   * HP: 20
+   * ORE: 150
+   * AMMO: 5 r/M revolver with 20 speedloaders, doing high-accuracy damage with constant semi-auto RoF and mid-speed reloads
+   * MELEE: Sword slash for 12 damage and burst of movement towards location
    * BUILDING CLASS: Mixed
 	 * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
      * Battery: Store energy from Generators to use later.  Available to all characters.  25 ore.
@@ -44,11 +47,31 @@
      * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
      * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
 	 * Shield: Blocks enemy passage and projectiles when toggled, for some energy.  Available to Defensive characters.  5 ore.
+	 * Turret: A stationary gun that auto PEWPEWs nearby enemies for a lot of energy.  Available to Defensive characters.  50 ore.
 	 * Caltrops: Slowly damages anything walking over them, including the player.  Available to Offensive characters.  5 ore.
-	 * Auto-Repair unit: Autorepairs all friendly buildings nearby for some energy.  Unique to The ???.  50 ore.
+	 * Landmine: Explodes (permanently) when stuff walks on top, including the player.  Available to Offensive characters.  5 ore.
    * PLAYSTYLE: Basebuilding to the max
-	 * The ??? is a base-building monstrocity; with caltrops, shields, and an AoE autorepair device...Whoo.  MONSTROCITY.
-	 * Her pistol is good for taking out bursts of enemies, but it lacks 
+	 * The Warrior is a base-building monster, having access to more offensive DPS-focused buildings and defensive constructions alike.
+	 * Her revolver is high-power, able to oneshot the generic zombies even in Drool difficulty, even from afar.
+	 * However, she doesn't get any special buildings of her own, and she has to reload frequently in combat.
+ * THE RATTMANN
+   * HP: 25
+   * ORE: 75
+   * AMMO: TBD r/M smg with TBD magazines, doing low-accuracy spray-n-pray pew pews with constant full-auto RoF and mid-speed reloads
+   * MELEE: Lunge forward and bite for 9 damage and burst of movement towards location
+   * BUILDING CLASS: Mixed
+	 * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
+     * Battery: Store energy from Generators to use later.  Available to all characters.  25 ore.
+     * Ammo Factory: Regens ammo when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
+     * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
+     * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
+	 * Turret: A stationary gun that auto PEWPEWs nearby enemies for a lot of energy.  Available to Defensive characters.  50 ore.
+	 * Caltrops: Slowly damages anything walking over them, including the player.  Available to Offensive characters.  5 ore.
+	 * SPECIAL: ???
+   * PLAYSTYLE: Kiting chaos funtimes
+	 * The Rattmann is chaos incarnate, as playable characters go, with turrets and caltrops making deadly defenses, and SMG spray 24/7.
+	 * Their SMG is highish power; each bullet only does one damage, but when you're spraying hundreds out per minute...it adds up.
+	 * However, the downside of this is that it takes longer to kill enemies, and the inaccuracy means long-range frags are hard.
 -=MUSIC TODO=-
  * MUSIC TYPES: Music is split up into several files per track for different conditions
    * DRUMS: Critical Condition

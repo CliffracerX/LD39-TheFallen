@@ -1,30 +1,29 @@
 fileFormatVersion: 2
-guid: 57cc0d33a4c171a4cb37d0f4dba08bcf
-timeCreated: 1501387541
+guid: 84c3848fd69291244a9064a6044361de
+timeCreated: 1502593401
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PlayerIdle_3
-    21300002: PlayerIdle_2
-    21300004: PlayerIdle_1
-    21300006: PlayerIdle_0
-    21300008: PlayerWalk_0
-    21300010: PlayerWalk_1
-    21300012: PlayerWalk_3
-    21300014: PlayerWalk_2
-    21300016: PlayerArmsIdle_1
-    21300018: PlayerArmsIdle_2
-    21300020: PlayerArmsIdle_0
-    21300022: PlayerArmsWalk_0
-    21300024: PlayerArmsWalk_2
-    21300026: PlayerArmsWalk_1
-    21300028: PlayerArmPistol_Mid
-    21300030: PlayerArmPistol_High
-    21300032: PlayerArmPistol_Low
+    21300000: RatmanIdle_3
+    21300002: RatmanIdle_2
+    21300004: RatmanIdle_0
+    21300006: RatmanIdle_1
+    21300008: RatmanWalk_0
+    21300010: RatmanWalk_2
+    21300012: RatmanWalk_1
+    21300014: RatmanArms_Mid
+    21300016: RatmanArmsSMG_Mid
+    21300018: RatmanArmsSMG_Lo
+    21300020: RatmanArmsSMG_Hi
+    21300022: RatmanArms_Lo
+    21300024: RatmanArmsWalk_0
+    21300026: RatmanArmsWalk_2
+    21300028: RatmanArmsWalk_1
+    21300030: RatmanArms_Hi
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -66,7 +65,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: PlayerIdle_3
+    - name: RatmanIdle_3
       rect:
         serializedVersion: 2
         x: 0
@@ -76,7 +75,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerIdle_2
+    - name: RatmanIdle_2
       rect:
         serializedVersion: 2
         x: 16
@@ -86,17 +85,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerIdle_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerIdle_0
+    - name: RatmanIdle_0
       rect:
         serializedVersion: 2
         x: 32
@@ -106,7 +95,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerWalk_0
+    - name: RatmanIdle_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RatmanWalk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -116,17 +115,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerWalk_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerWalk_2
+    - name: RatmanWalk_2
       rect:
         serializedVersion: 2
         x: 16
@@ -136,7 +125,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerArmsIdle_1
+    - name: RatmanWalk_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RatmanArms_Mid
       rect:
         serializedVersion: 2
         x: 48
@@ -146,57 +145,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerArmsIdle_2
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerArmsIdle_0
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerArmsWalk_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerArmsWalk_2
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerArmsWalk_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerArmPistol_Mid
+    - name: RatmanArmsSMG_Mid
       rect:
         serializedVersion: 2
         x: 0
@@ -206,7 +155,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: .600000024, y: .600000024}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerArmPistol_High
+    - name: RatmanArmsSMG_Lo
       rect:
         serializedVersion: 2
         x: 16
@@ -216,7 +165,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: .600000024, y: .600000024}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerArmPistol_Low
+    - name: RatmanArmsSMG_Hi
       rect:
         serializedVersion: 2
         x: 32
@@ -225,6 +174,56 @@ TextureImporter:
         height: 16
       alignment: 9
       pivot: {x: .600000024, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RatmanArms_Lo
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RatmanArmsWalk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RatmanArmsWalk_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RatmanArmsWalk_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RatmanArms_Hi
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

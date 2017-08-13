@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
 	public float shake;
 	public MusicThing[] types;
 	public AudioSource hurtNoise;
+	public int healthPerRest,ammoPerRest;
 
 	void Damage(int amount)
 	{

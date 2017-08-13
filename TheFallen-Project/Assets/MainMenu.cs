@@ -53,7 +53,7 @@ public class MainMenu : MonoBehaviour
 		}
 		else if(thisScr==Scr.HelpScr)
 		{
-			if(GUI.Button(new Rect(25, 25, 196*2, 64), "Back to Main", style))
+			if(GUI.Button(new Rect(25, 25, 196*2, 64), "Back to Main", selStyle))
 			{
 				thisScr=Scr.MainScr;
 			}
@@ -61,29 +61,31 @@ public class MainMenu : MonoBehaviour
 		}
 		else if(thisScr==Scr.PlayScr)
 		{
-			if(GUI.Button(new Rect(25, Screen.height-64, 196, 64), "Back to Main", style))
+			if(GUI.Button(new Rect(25, Screen.height-64, 196, 64), "Back to Main", selStyle))
 			{
 				thisScr=Scr.MainScr;
 			}
 			for(int i = 0; i<difs.Length; i++)
 			{
-				if(GUI.Button(new Rect((Screen.width/4)-196, 25+(32*i), 196, 32), difs[i].name, curDif==i ? selStyle : style))
+				if(GUI.Button(new Rect((Screen.width/4)-196, 48+(32*i), 196, 32), difs[i].name, curDif==i ? selStyle : style))
 				{
 					curDif=i;
 					PlayerPrefs.SetInt("DifficultyPref", curDif);
 				}
 			}
+			GUI.Label(new Rect((Screen.width/4)-196, 0, 196, 32), "DIFFICULTY:", selStyle);
 			for(int i = 0; i<chars.Length; i++)
 			{
-				if(GUI.Button(new Rect((Screen.width/2)+(Screen.width/4), 25+(32*i), 196, 32), chars[i].name, curChar==i ? selStyle : style))
+				if(GUI.Button(new Rect((Screen.width/2)+(Screen.width/4), 48+(32*i), 196, 32), chars[i].name, curChar==i ? selStyle : style))
 				{
 					curChar=i;
 					PlayerPrefs.SetInt("CharacterPref", curChar);
 				}
 			}
+			GUI.Label(new Rect((Screen.width/2)+(Screen.width/4), 0, 196, 32), "CHARACTERS:", selStyle);
 			GUI.Label(new Rect(25, Screen.height-368, Screen.width/3, 368), difs[curDif].description, style);
 			GUI.Label(new Rect(Screen.width-(Screen.width/3)-25, Screen.height-368, Screen.width/3, 368), chars[curChar].description, style);
-			if(GUI.Button(new Rect(Screen.width-196-25, Screen.height-64, 196, 64), "PLAY", style))
+			if(GUI.Button(new Rect(Screen.width-196-25, Screen.height-64, 196, 64), "PLAY", selStyle))
 			{
 				Application.LoadLevel(1);
 			}

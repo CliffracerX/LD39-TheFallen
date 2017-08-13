@@ -43,7 +43,7 @@ public class MediScript : PowerObject
 				healTick=0;
 				if(Vector3.Distance(transform.position, Player.instance.transform.position)<=healRange)
 				{
-					Player.instance.health+=(int)(healAmount*(Player.instance.maxHealth/25f));
+					Player.instance.health+=(int)(healAmount*Player.instance.healthPerRest);
 					if(Player.instance.health>Player.instance.maxHealth)
 						Player.instance.health=Player.instance.maxHealth;
 				}
