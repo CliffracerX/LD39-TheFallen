@@ -12,11 +12,11 @@
      * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
      * Shield: Blocks enemy passage and projectiles when toggled, for some energy.  Available to Defensive characters.  5 ore.
      * Turret: A stationary gun that auto PEWPEWs nearby enemies for a lot of energy.  Available to Defensive characters.  50 ore.
-	 * SPECIAL: ???
    * PLAYSTYLE: Noob-friendly in every way
      * The Dude is an uncomplicated character.  His buildings are simple and effective for turtling, and his weapon's good.
      * His pistol is powerful, high-capacity, and has a variable semi-auto RoF; it's as fast as you need it to be.
      * While he lacks some of the tactical depth that other characters can rock, he's simple and powerful.
+	 * He's a noob-friendly character in every sense of the word.  IDK, nothing much to say.
  * THE PSYCHO
    * HP: 50
    * ORE: 50
@@ -30,11 +30,11 @@
      * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
      * Caltrops: Slowly damages anything walking over them, including the player.  Available to Offensive characters.  5 ore.
      * Landmine: Explodes (permanently) when stuff walks on top, including the player.  Available to Offensive characters.  5 ore.
-	 * SPECIAL: ???
    * PLAYSTYLE: Shooter-game incarnate
 	 * The Psycho is a murder-machine; loads of health, ammo, and damage per shot, with offensive drone allies that can help him.
 	 * His shotgun is an offensive weapon of IMPRESSIVE damage potential, but it's hampered by slow reloads and lower RoF.
 	 * While he lacks some of the base-buildy goodness that Defensive characters have got, he's loads of fun for just rampaging.
+	 * He's a fun character for just unleashing absolute chaos onto the battlefield without needing to think too hard.
  * THE WARRIOR
    * HP: 20
    * ORE: 150
@@ -52,10 +52,11 @@
 	 * The Warrior is a mobile base-building monster; shields and caltrops can make for an effective combo.
 	 * Her revolver is high-power, able to oneshot the generic zombies even in Drool difficulty, even from afar.
 	 * However, she doesn't get any special buildings of her own, and she has to reload frequently in combat.
+	 * She's a fun character for veterans looking to put their skills to the test with a more unusual character.  It's high noon, boiz.
  * THE RATTMANN
    * HP: 40
    * ORE: 100
-   * AMMO: 50 r/M smg with 8 magazines, doing low-accuracy spray-n-pray pew pews with constant full-auto RoF and mid-speed reloads
+   * AMMO: 50 r/M SMG with 8 magazines, doing low-accuracy spray-n-pray pew pews with constant full-auto RoF and mid-speed reloads
    * MELEE: Lunge forward and bite for 9 damage and burst of movement towards location
    * BUILDING CLASS: Mixed
 	 * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
@@ -67,8 +68,27 @@
 	 * Landmine: Explodes (permanently) when stuff walks on top, including the player.  Available to Offensive characters.  5 ore.
    * PLAYSTYLE: Kiting chaos funtimes
 	 * The Rattmann is a chaotic lightweight death machine, with his rapidfire SMG and deadly traps.
-	 * Their SMG is highish power; each bullet only does two damage, but when you're spraying hundreds out per minute...it adds up.
+	 * His SMG is highish power; each bullet only does two damage, but when you're spraying hundreds out per minute...it adds up.
 	 * However, the downside of this is that it takes longer to kill enemies, and the inaccuracy means long-range frags are hard.
+	 * He's a fun character for experienced players looking for something different; turrets, traps, and spray/pray?  Yes please!
+ * THE DRUID
+   * HP: 10
+   * ORE: 100 (bar)
+   * AMMO: 20 r/M Neural D.A.R.T. with 5 magazines that temporarily pacifies enemies
+   * MELEE: A deadly injection that oneshots enemies, but costs 1 HP
+   * BUILDING CLASS: Custom
+	 * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
+     * Battery: Store energy from Generators to use later.  Available to all characters.  25 ore.
+     * Ammo Factory: Regens ammo when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
+     * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
+     * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
+	 * Pacification Turret: The Neural D.A.R.T. mounted atop a base, petmanently pacifying enemies.  Unique to The Druid.  25 ore.
+	 * Beam Turret: Death-rays for highest-danger targets, at the cost of CRAPLOADS of power.  Unique to The Druid.  100 ore.
+   * PLAYSTYLE: SHADE
+	 * The Druid is a character for The Fallen (roll credits!) to play their coveted True Pacifist Runs.
+	 * The D.A.R.T. that she carries pacifies zombies, but it's slow, dangerous, and potentially useless in large-scale combat.
+	 * If you want to prove yourself a disciple of young Master Dreemurr by playing this gal in Drool difficulty, be my guest.
+	 * Just...Don't wait around for me to scrape your pancaked remains off the floor.  You gon get rekt, broh.
 -=MUSIC TODO=-
  * MUSIC TYPES: Music is split up into several files per track for different conditions
    * DRUMS: Critical Condition

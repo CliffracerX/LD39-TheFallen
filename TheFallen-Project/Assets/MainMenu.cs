@@ -5,6 +5,7 @@ using System.Collections;
 public class EntryThing
 {
 	public string name;
+	public string lockName;
 	[TextArea]
 	public string description;
 	[TextArea]
@@ -60,12 +61,16 @@ public class MainMenu : MonoBehaviour
 			charUnlocked[0] = true;
 			PlayerPrefs.SetInt("CharUn:0", 1);
 		}
+		Debug.Log(chars[4].lockName);
 	}
 
 	void OnGUI()
 	{
 		logo.SetActive(false);
 		webLogo.SetActive(false);
+		style.richText=true;
+		selStyle.richText=true;
+		lockStyle.richText=true;
 		if(thisScr==Scr.MainScr)
 		{
 			logo.SetActive(true);
@@ -102,7 +107,7 @@ public class MainMenu : MonoBehaviour
 			}
 			for(int i = 0; i<difs.Length; i++)
 			{
-				if(GUI.Button(new Rect((Screen.width/4)-196, 48+(32*i), 196, 32), difs[i].name, curDif==i ? selStyle : style))
+				if(GUI.Button(new Rect((Screen.width/4)-196, 48+(32*i), 196, 32), difUnlocked[i] ? difs[i].name : difs[i].lockName, curDif==i ? selStyle : style))
 				{
 					curDif=i;
 					PlayerPrefs.SetInt("DifficultyPref", curDif);
@@ -111,7 +116,7 @@ public class MainMenu : MonoBehaviour
 			GUI.Label(new Rect((Screen.width/4)-196, 0, 196, 32), "DIFFICULTY:", selStyle);
 			for(int i = 0; i<chars.Length; i++)
 			{
-				if(GUI.Button(new Rect((Screen.width/2)+(Screen.width/4), 48+(32*i), 196, 32), chars[i].name, curChar==i ? selStyle : style))
+				if(GUI.Button(new Rect((Screen.width/2)+(Screen.width/4), 48+(32*i), 196, 32), charUnlocked[i] ? chars[i].name : chars[i].lockName, curChar==i ? selStyle : style))
 				{
 					curChar=i;
 					PlayerPrefs.SetInt("CharacterPref", curChar);
