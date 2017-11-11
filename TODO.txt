@@ -1,3 +1,59 @@
+-=DISCORD INTEGRATION=-
+ * 378971031093772288
+ * STATES
+   * Menus (main menu/help/options)
+   * Preparing (on the singleplayer screen)
+ * DETAILS
+   * Health, progress
+ * IMAGES
+  * Small image: Current character
+  * Large image: Current difficulty
+-=ENDLESS DLC=-
+ * Adds a new game option - Endless Mode.  Endless mode gives you saving/loading of the world, and can be played at any of the base-game difficulties.
+   * In endless, all characters can make the Swapper, a 50-resource building that lets you, at the cost of a full battery, switch characters.
+   * In endless, all characters can make a Rezbox, a 50-resource one-use power-hog of a building that automatically rezzes any ally the moment they die.
+   * In endless, you cannot win the game.  It's an endless difficulty ramp, and death is inevitable.  You can make machines to prolong your life, though.
+   * Endless is at its best with friends, as character synergies become more important, and fighting off the apocalypse with a buddy is great fun.
+ * NEW CHARACTER: THE MUSICIAN
+   * HP: 20
+   * ORE: 200
+   * AMMO: 20 r/B Sonic Amplifier, with 20 spare batteries, low-damage-per-hit with 4-round burstfire and fast reloads.
+   * MELEE: Punch for 5 damage
+   * BUILDING CLASS: Defensive?
+	 * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
+     * Battery: Store energy from Generators to use later.  Available to all characters.  25 ore.
+     * Ammo Factory: Regens ammo when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
+     * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
+     * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
+	 * Tempo Block: When powered, produces a solid CV tempo, which can be configured.  MUSICIAN CUSTOM.  10 ore.
+	 * Note Sequencer: A 16-note CV sequencer - requires tempo CV and power, produces note CV.  MUSICIAN CUSTOM.  10 ore.
+	 * Drum Sequencer: A 16-note CV sequencer for drums - requires tempo CV and power, produces drum note CVs.  MUSICIAN CUSTOM.  10 ore.
+	 * Sampler: A PCMSynth-style sampler - given power and note CVs, plays audio back.  MUSICIAN CUSTOM.  10 ore.
+	 * Drum machine: A classic beatbox-style drum sampler, given power and note CV, plays drum audio.  MUSICIAN CUSTOM.  10 ore.
+	 * CV Gate: A customizable logic gate, useful for cutting power/CV/etc.  2 inputs, one output.  MUSICIAN CUSTOM.  10 ore.
+	 * Enemy Detector: When a given number of enemies are within a given range, outputs an ON CV, otherwise OFF.  MUSICIAN CUSTOM.  10 ore.
+	 * Ally Monitor: Pick a player by ID and get CV-powered information on health/ammo/magazine/ore percentages.  MUSICIAN CUSTOM.  10 ore.
+   * PLAYSTYLE: Overcomplicated engineer
+	 * The Musician is primarily for Endless Mode co-op fun; his buildings are almost completely impractical for solo play or short games.
+	 * He can make music (which wards off enemies to some extent), and some of his buildings (such as the CV Gate) can be combo'd to make traps.
+	 * Furthermore, just being able to power lamps w/ CV and turn your base into a rave...it's just plain fun.
+	 * Also, he's basically a representation of Asri from 006; musician, warrior, engineer, and white-furred goat guy?  That's him, alright.
+ * NEW CHARACTER: THE GUARDIAN
+   * HP: 50
+   * ORE: 100
+   * AMMO: 10 r/M automatic shotgun, with 6 spare magazines, upper-middle-damage bursts at a low-ish firerate
+   * MELEE: Bite for ??? damage
+   * BUILDING CLASS: TANK TANK TANK
+	 * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
+     * Battery: Store energy from Generators to use later.  Available to all characters.  25 ore.
+     * Ammo Factory: Regens ammo when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
+     * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
+     * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
+	 * Buffet: Produce health-over-time food for a load of energy.  50 ore.  SPECIAL: The Guardian can eat a lot more food, at the cost of her speed.
+   * PLAYSTYLE: TANK TANK TANK
+	 * The Guardian is a co-op-centric character whose buildings are at their best when they're supporting a whole team of friends.
+	 * 
+ * Cost: $0.5, being a light addition to the base game
 -=CHARACTER TODO=-
  * THE DUDE
    * HP: 25
@@ -74,40 +130,52 @@
  * THE DRUID
    * HP: 10
    * ORE: 100 (bar)
-   * AMMO: 20 r/M Neural D.A.R.T. with 5 magazines that temporarily pacifies enemies
-   * MELEE: A deadly injection that oneshots enemies, but costs 1 HP
+   * AMMO: 20 r/M Neural D.A.R.T. with 5 magazines.  It has a chance to pacify any enemy hit by it, chance based on difficulty and enemy type.
+   * MELEE: A deadly injection that oneshot kills enemies, but costs 1 HP.  Use against high danger targets that can't be Pacified normally ONLY.
    * BUILDING CLASS: Custom
 	 * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
      * Battery: Store energy from Generators to use later.  Available to all characters.  25 ore.
      * Ammo Factory: Regens ammo when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
      * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
      * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
-	 * Pacification Turret: The Neural D.A.R.T. mounted atop a base, petmanently pacifying enemies.  Unique to The Druid.  25 ore.
-	 * Beam Turret: Death-rays for highest-danger targets, at the cost of CRAPLOADS of power.  Unique to The Druid.  100 ore.
+	 * Pacification Turret: A Neural D.A.R.T. mounted atop a base, requiring loads of power to maintain.  Unique to The Druid.  50 ore.
+	 * Barricade: A Shield-equivalent that's way less tanky, but is cheaper and requires less power.  Unique to The Druid.  1 ore.
    * PLAYSTYLE: SHADE
-	 * The Druid is a character for The Fallen (roll credits!) to play their coveted True Pacifist Runs.
+	 * The Druid is a character for The Fallen (roll credits!) to play their coveted True Pacifist Runs.  Yes, she's even a Boss Monster.
 	 * The D.A.R.T. that she carries pacifies zombies, but it's slow, dangerous, and potentially useless in large-scale combat.
 	 * If you want to prove yourself a disciple of young Master Dreemurr by playing this gal in Drool difficulty, be my guest.
-	 * Just...Don't wait around for me to scrape your pancaked remains off the floor.  You gon get rekt, broh.
+	 * Just...Don't wait around for me to scrape your pancaked remains off the floor.  You are going to die.  A lot.  Superhuman X-COM:TfTD levels of a lot.
+ * THE GRENADIER
+   * HP: 100
+   * ORE: 25
+   * AMMO: 6 r/M grenade launcher with 30 spare grenades, AoE booms, medium firerate, and manual reloads.  They damage EVERYTHING, including you.
+   * MELEE: Lob a free acid grenade once every few seconds.
+   * BUILDING CLASS: Custom
+	 * Generator: Produce energy for fuel.  Available to all characters.  25 ore.
+     * Battery: Store energy from Generators to use later.  Available to all characters.  25 ore.
+     * Ammo Factory: Regens ammo when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
+     * Medical Station: Heals when nearby and toggled for copious amounts of energy.  Available to all characters.  15 ore.
+     * Lamp: Glows brightly to light up your base when toggled, for a bit of energy.  Available to all characters.  10 ore.
+	 * Debris: Super-cheap caltrops that damage everything on top of them slowly.  Unique to The Grenadier.  1 ore.
+	 * 
+   * PLAYSTYLE: VIGILO CONFIDO
+	 * The Grenadier is, canonically speaking, Cynthia "Pitbull" Freeman from my XCOM 2 campaigns.
+	 * She's, well, a Grenadier.  Heavy ordinance delivery incarnate.  High RoF minigun turrets of doom, explosives, just chaotic goodness all 'round.
 -=MUSIC TODO=-
  * MUSIC TYPES: Music is split up into several files per track for different conditions
-   * DRUMS: Critical Condition
+   * DRUMS/DRUMS/DRUMS: Critical Condition
      * If the drums go away you need to retreat to safety, STAT.
      * They indicate that your character is healthy and still has plenty of ammo to spare.
      * If you have more than one-fifth health and one-fifth mags/reloads, these play.
-   * TINGS: Combat Condition
+   * KSSYNTH/SAWSYNTH/M1PIANO: Combat Condition
      * If the KSSynth tings start playing, you know shit's about to hit the fan.
      * They indicate that combat has started; e.g, there's >=10 zombies nearby.
      * They don't stop until combat is close to finished; e.g, there's <=5 zombies nearby.
-   * PINGS: Weapons Condition
+   * SUBSYNTH/PCMSYNTH/LIVESAW: Weapons Condition
      * If the SubSynth pings are on, you're probably just mining, or fighting off zambies.
      * They play whenever your weapon is out; meaning that you hear them when mining, too.
      * They stop whenever you holster your weapon.
-   * ORGAN: Civilization Condition
+   * ORGAN/PADSYNTH/LIVEARP: Civilization Condition
      * If the organ is on, you're probably either mining a large vein of ore, or at home.
      * Plays whenever there's a lot of non-zambie damage-taking objects near, like buildings.
      * Specifically, when there's >=25 Damagable-tagged non-Zambie objects nearby.
- * TRACKS: There are a few different looping tracks made up of the above types.
-   * OST Tracks 4-6: The Dude's theme(s)
-     * The first track made post-LD.  This is always tense, sometimes determination-inducing, and sometimes determination-crushing.
-     * The default track that comes on when you're playing The Dude, although others are available.

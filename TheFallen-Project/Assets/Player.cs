@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
 	public Transform camera;
 	public float shake;
 	public MusicThing[] types;
+	public int[] defaultTrackByDifficulty;
 	public AudioSource hurtNoise;
 	public int healthPerRest,ammoPerRest;
 
@@ -102,6 +103,7 @@ public class Player : MonoBehaviour
 		{
 			mt.StopAll();
 		}
+		curTrack = defaultTrackByDifficulty[MainMenu.curDif];
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -121,6 +123,7 @@ public class Player : MonoBehaviour
 
 	void Update()
 	{
+		DiscordHandler.UpdateState(MainMenu.curChar, MainMenu.curDif, health, maxHealth, mags, maxMags, clip, maxClip, LaunchpadScript.curProg, MainMenu.curMode);
 		if(Input.GetButtonUp("Jump"))
 		{
 			pistolOut=!pistolOut;

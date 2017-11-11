@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9c98b4f3fc6885846814843c41ab5bac
-timeCreated: 1502581681
+timeCreated: 1503775346
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,9 +12,9 @@ TextureImporter:
     21300010: WarriorWalk_2
     21300012: WarriorWalk_1
     21300014: WarriorArms_Mid
-    21300016: WarriorArmsRev_Mid
-    21300018: WarriorArmsRev_Lo
-    21300020: WarriorArmsRev_Hi
+    21300016: WarriorArmsRevolver_Mid
+    21300018: WarriorArmsRevolver_Lo
+    21300020: WarriorArmsRevolver_Hi
     21300022: WarriorArms_Lo
     21300024: WarriorArmsWalk_0
     21300026: WarriorArmsWalk_2
@@ -145,7 +145,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: WarriorArmsRev_Mid
+    - name: WarriorArmsRevolver_Mid
       rect:
         serializedVersion: 2
         x: 0
@@ -155,7 +155,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: .600000024, y: .600000024}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: WarriorArmsRev_Lo
+    - name: WarriorArmsRevolver_Lo
       rect:
         serializedVersion: 2
         x: 16
@@ -165,7 +165,7 @@ TextureImporter:
       alignment: 9
       pivot: {x: .600000024, y: .600000024}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: WarriorArmsRev_Hi
+    - name: WarriorArmsRevolver_Hi
       rect:
         serializedVersion: 2
         x: 32

@@ -17,6 +17,7 @@ public class LaunchpadScript : MonoBehaviour
 	public float mapScale;
 	public float[] cooldownsFromDiff;
 	public float[] drainRatesFromDiff;
+	public static int curProg;
 
 	void Start()
 	{
@@ -58,6 +59,7 @@ public class LaunchpadScript : MonoBehaviour
 		{
 			Application.LoadLevel(3);
 		}
+		curProg = (int)percent;
 	}
 
 	void OnGUI()

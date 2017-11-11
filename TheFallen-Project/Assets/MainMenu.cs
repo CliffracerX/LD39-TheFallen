@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
 	[TextArea]
 	public string helpLabel;
 	public EntryThing[] difs,chars;
-	public static int curDif,curChar;
+	public static int curDif,curChar,curMode;
 	public bool[] difUnlocked,charUnlocked;
 	public static MainMenu inst;
 
@@ -88,7 +88,7 @@ public class MainMenu : MonoBehaviour
 			}
 			if(GUI.Button(new Rect(Screen.width/2-196, Screen.height/2+80, 196*2, 64), "Quit Game", style))
 			{
-				Application.Quit();
+				DiscordHandler.instance.OnQuit();
 			}
 		}
 		else if(thisScr==Scr.HelpScr)

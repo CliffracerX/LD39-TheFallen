@@ -7,6 +7,6 @@ public class PlayerPicker : MonoBehaviour
 
 	void Start()
 	{
-		plays[MainMenu.curChar].SetActive(true);
+		Instantiate(plays[MainMenu.curChar], Vector3.zero, plays[MainMenu.curChar].transform.rotation);
 	}
 }

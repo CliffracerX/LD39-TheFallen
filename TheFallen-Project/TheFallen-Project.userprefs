@@ -1,19 +1,12 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MainMenu.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DiscordHandler.cs">
     <Files>
-      <File FileName="Assets\TurretScript.cs" Line="35" Column="6" />
-      <File FileName="Assets\Player.cs" Line="207" Column="72" />
-      <File FileName="Assets\Wire.cs" Line="1" Column="1" />
-      <File FileName="Assets\PowerObject.cs" Line="66" Column="16" />
-      <File FileName="Assets\GroundTrap.cs" Line="20" Column="15" />
-      <File FileName="Assets\MainMenu.cs" Line="64" Column="32" />
-      <File FileName="Assets\AmmoScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\MediScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\TempSound.cs" Line="12" Column="11" />
-      <File FileName="Assets\ZambieScript.cs" Line="28" Column="1" />
-      <File FileName="Assets\ReturnToSpawn.cs" Line="4" Column="21" />
-      <File FileName="Assets\LaunchpadScript.cs" Line="13" Column="32" />
+      <File FileName="Assets\DiscordRpc.cs" Line="83" Column="1" />
+      <File FileName="Assets\DiscordHandler.cs" Line="63" Column="33" />
+      <File FileName="Assets\Player.cs" Line="126" Column="112" />
+      <File FileName="Assets\MainMenu.cs" Line="91" Column="38" />
+      <File FileName="Assets\LaunchpadScript.cs" Line="62" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
